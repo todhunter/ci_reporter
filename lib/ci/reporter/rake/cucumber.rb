@@ -15,5 +15,11 @@ namespace :ci do
         "--format", "CI::Reporter::Cucumber"].join(" ")
       ENV["CUCUMBER_OPTS"] = "#{ENV['CUCUMBER_OPTS']} #{cuke_opts}"
     end
+
+    task :customCucumber do
+      cuke_opts = ["",
+      "--format", "CI::Reporter::Cucumber"].join(" ")
+      ENV["CUCUMBER_OPTS"] = "#{ENV['CUCUMBER_OPTS']} #{cuke_opts}"
+    end
   end
 end

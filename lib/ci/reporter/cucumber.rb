@@ -101,11 +101,17 @@ module CI
       end
 
       def before_table_row(table_row)
+        unless table_row.respond_to?('name')
+          return
+        end
         @test_case = TestCase.new("#@scenario (outline: #{table_row.name})")
         @test_case.start
       end
 
       def after_table_row(table_row)
+        unless table_row.respond_to?('failed?')
+          return
+        end
         if @header_row
           @header_row = false
           return
