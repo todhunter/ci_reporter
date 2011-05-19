@@ -16,6 +16,12 @@ namespace :ci do
       ENV["SPEC_OPTS"] = "#{ENV['SPEC_OPTS']} #{spec_opts}"
     end
 
+    task :rspec do
+      spec_opts = ["--require", CI::Reporter.maybe_quote_filename("#{File.dirname(__FILE__)}/rspec_loader.rb"),
+        "--format", "CI::Reporter::RSpec"].join(" ")
+      ENV["SPEC_OPTS"] = "#{ENV['SPEC_OPTS']} #{spec_opts}"
+    end
+
     task :rspecdoc => :spec_report_cleanup do
       spec_opts = ["--require", CI::Reporter.maybe_quote_filename("#{File.dirname(__FILE__)}/rspec_loader.rb"),
         "--format", "CI::Reporter::RSpecDoc"].join(" ")
