@@ -11,7 +11,7 @@ namespace :ci do
     end
 
     task :cucumber => :cucumber_report_cleanup do
-      cuke_opts = [""),
+      cuke_opts = ["",
         "--format", "CI::Reporter::Cucumber"].join(" ")
       ENV["CUCUMBER_OPTS"] = "#{ENV['CUCUMBER_OPTS']} #{cuke_opts}"
     end
