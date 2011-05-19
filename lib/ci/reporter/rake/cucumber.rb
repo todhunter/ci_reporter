@@ -11,7 +11,7 @@ namespace :ci do
     end
 
     task :cucumber => :cucumber_report_cleanup do
-      cuke_opts = ["--require", CI::Reporter.maybe_quote_filename("#{File.dirname(__FILE__)}/cucumber_loader.rb"),
+      cuke_opts = [""),
         "--format", "CI::Reporter::Cucumber"].join(" ")
       ENV["CUCUMBER_OPTS"] = "#{ENV['CUCUMBER_OPTS']} #{cuke_opts}"
     end
